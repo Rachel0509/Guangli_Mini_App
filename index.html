@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <link rel="stylesheet" href="./css/master.css">
+</head>
+
+<body>
+    <div id="home">
+        <nav>
+            <div class="inner container">
+                <div class="logo"><img src="./images/mcLogo.png" alt=""></div>
+                <ul>
+                    <li><a href="#">Models</a></li>
+                    <li><a href="#">Shopping Tools</a></li>
+                    <li><a href="#">Discovers</a></li>
+                    <li><a href="#">Owners</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="change-video">
+                <div class="top">
+                    <video :src="currentImgVideo.video" controls autoplay muted></video>
+                </div>
+                <div class="bottom">
+                    <div v-for="(item,index) in imgVideos" :key="index" class="img" @click="onChangeVideo(item)">
+                        <img :src="item.img" alt="">
+                    </div>
+                </div>
+            </div>
+            <img-text :single-img="currentImgText" :imgs="imgTexts"></img-text>
+            <!-- <div class="change-text container">
+                <div class="left">
+                    <h2>Select Your Model:</h2>
+                    <div class="imgs">
+                        <div v-for="(item,index) in imgTexts" :key="index" class="img" @click="onChangeText(item)">
+                            <img :src="item.img" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <h2>{{currentImgText.title}}</h2>
+                    <p class="price">{{currentImgText.price}}</p>
+                    <div class="content" v-html="currentImgText.desc"></div>
+                </div>
+            </div> -->
+        </main>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>
