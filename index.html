@@ -28,26 +28,11 @@
                 </div>
                 <div class="bottom">
                     <div v-for="(item,index) in imgVideos" :key="index" class="img" @click="onChangeVideo(item)">
-                        <img :src="item.img" alt="">
+                        <img :src="item.img" alt="" :class="{active: item.active}">
                     </div>
                 </div>
             </div>
             <img-text :single-img="currentImgText" :imgs="imgTexts"></img-text>
-            <!-- <div class="change-text container">
-                <div class="left">
-                    <h2>Select Your Model:</h2>
-                    <div class="imgs">
-                        <div v-for="(item,index) in imgTexts" :key="index" class="img" @click="onChangeText(item)">
-                            <img :src="item.img" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="right">
-                    <h2>{{currentImgText.title}}</h2>
-                    <p class="price">{{currentImgText.price}}</p>
-                    <div class="content" v-html="currentImgText.desc"></div>
-                </div>
-            </div> -->
         </main>
     </div>
 
