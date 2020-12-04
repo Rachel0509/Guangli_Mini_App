@@ -21,7 +21,11 @@ export default {
     },
     methods: {
         onChangeText(item) {
+            this.imgTexts.forEach(v => {
+                v.active = false;
+            });
             this.currentImgText = this.imgTexts.find(v => v.id == item.id);
+            this.currentImgText.active = true;
         }
     },
     template: `
@@ -29,7 +33,7 @@ export default {
                     <div class="left">
                         <h2>Select Your Model:</h2>
                         <div class="imgs">
-                            <div v-for="(item,index) in imgTexts" :key="index" class="img" @click="onChangeText(item)">
+                            <div v-for="(item,index) in imgTexts" :key="index" class="img" @click="onChangeText(item)" :class="{active: item.active}">
                                 <img :src="item.img" alt="">
                             </div>
                         </div>
